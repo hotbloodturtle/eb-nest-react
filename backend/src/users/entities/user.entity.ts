@@ -1,9 +1,9 @@
-import { Column, Entity, PrimaryColumn } from 'typeorm';
+import { Column, Entity, CreateDateColumn, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('User')
 export class User {
-  @PrimaryColumn()
-  id: string;
+  @PrimaryGeneratedColumn()
+  id: number;
 
   @Column({ length: 50 })
   name: string;
@@ -14,6 +14,6 @@ export class User {
   @Column({ length: 30 })
   password: string;
 
-  @Column({ length: 60 })
-  signupVerifyToken: string;
+  @CreateDateColumn()
+  createdAt: Date;
 }
